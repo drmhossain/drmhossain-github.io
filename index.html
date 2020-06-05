@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume:One page style</title>
+
+    <!-- <link rel="stylesheet" href="toc_copy.css">
+    <script src="toc_copy.js"></script> -->
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            /* color: rgb(202, 187, 187); */
+        }
+
+        /* ------------------------------------------------------- */
+        /* MEDIA QUERY: how to */
+
+        /* Extra small devices (phones, 600px and down) */
+        /* @media only screen and (max-width: 600px) {...} */
+
+        /* Small devices (portrait tablets and large phones, 600px and up) */
+        /* @media only screen and (min-width: 600px) {...} */
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        /* @media only screen and (min-width: 768px) {...} */
+
+        /* Large devices (laptops/desktops, 992px and up) */
+        /* @media only screen and (min-width: 992px) {...} */
+
+        /* Extra large devices (large laptops and desktops, 1200px and up) */
+        /* @media only screen and (min-width: 1200px) {...} */
+        /* 
+@media only screen and (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+} */
+        /* ---------------------------------------------------------- */
+        li {
+            list-style-type: none;
+        }
+
+        summary {
+            /* font-weight: bold; */
+            font-size: 14px;
+            padding-top: 15px;
+        }
+
+        details>li {
+            padding-left: 25px;
+        }
+
+        /* li>ul>li{
+    color: rgb(206, 40, 164);
+} */
+
+        /* div {
+    border: 1px solid rgb(61, 61, 61);
+} */
+
+        /* to make content hidden */
+        #div_outsice_grd {
+            visibility: hidden;
+        }
+
+        .grd {
+            display: grid;
+            grid-template-columns: 1fr 600px 1fr;
+            grid-template-areas:
+                'header header header'
+                'nav nav nav'
+                'toc content_display aside '
+                'footer footer footer'
+                'content content content';
+            grid-template-rows: 60px 30px 500px 100px auto;
+            grid-gap: 1px;
+           background: rgb(63, 63, 63);
+            color: rgb(227, 227, 233);
+            height: 100%vh;
+            position: fixed;
+        }
+
+        .header {
+            display: grid;
+            grid-area: header;
+            text-align: center;
+            /* background-color: rgb(44, 49, 44); */
+
+            background-color: green
+        }
+
+        #header_left {
+            grid-area: 1/1/2/2;
+            text-align: left;
+            color: rgb(151, 81, 24);
+            border:none
+        }
+
+        #header_left button {
+            color: rgb(255, 255, 255);
+            background: blue;
+            border: .5px solid blue;
+            font-size: 18px;
+        }
+
+
+        #header_mid {
+            grid-area: 1/2/2/3;
+            border: none;
+            text-align: left; 
+        }
+        
+        #header_mid> h2 {
+           margin-bottom: -150px;
+           text-shadow: 4px 3px 5px rgb(19, 26, 2);
+           /* color: rgb(157, 167, 163); */
+            color:rgb(16, 161, 28);
+            text-align: center;
+          
+            
+        }
+
+        #header_right {
+            grid-area: 1/3/2/4;
+            text-align: right;
+            border: none;
+        }
+
+        #header_right button {
+            color: rgb(255, 255, 255);
+            background: blue;
+            border: .5px solid blue;
+            font-size: 18px;
+
+        }
+
+        .nav {
+            grid-area: nav;
+            text-align: center;
+            background: rgb(63, 63, 63);
+            color: white;
+            border-bottom: solid .5px grey;
+            border-top: solid .5px grey;
+            padding-top: 5px;
+        }
+        .nav a {
+            /* grid-area: nav; */
+            text-align: center;
+            background: rgb(44, 44, 48);
+            color: white;
+            border-bottom: solid .5px grey;
+            border-top: solid .5px grey;
+            padding-left: 5px;
+            font-size: 12px;
+        }
+        .nav a:hover {
+            background: rgb(214, 97, 218);
+            color: black;
+        }
+
+        .toc {
+            grid-area: toc;
+            background: rgb(63, 63, 63);
+            color: rgb(173, 169, 169);
+            border: solid .5px grey;
+            margin-right: 15px;
+            border-top: none;
+            border-bottom: none;
+            overflow: auto;
+            font-size: 11px;
+            height: 100%vh;
+            padding:10px;
+        }
+
+        .content_display {
+            grid-area: content_display;
+            overflow: auto;
+            margin-left: -12px;
+            height:100%vh;
+            background: rgb(63, 63, 63);
+            border:1px solid rgb(26, 5, 21);
+           
+
+        }
+
+        .aside {
+            grid-area: aside;
+            /* color: white; */
+            color: rgb(186, 187, 181);
+            border: solid .5px grey;
+            padding: 10px;
+            height:100%vh;
+            overflow:auto;
+            border-top:none;
+            /* border-bottom: none; */
+        }
+
+        .aside input {
+            color: rgb(186, 187, 181);
+            font-size: 12px;
+            background: rgb(63, 63, 63);
+            border: none;
+        }
+        .aside input:hover {
+            color: rgb(255, 255, 255);
+            font-size: 12px;
+            background: rgb(156, 79, 172);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* .aside > ul> li {
+  color: rgb(46, 161, 37);
+} */
+
+        .aside ul {
+            /* color: rgb(252, 248, 7); */
+            color: rgb(186, 187, 181);
+            font-size: 12px;
+            margin-left: -30px;
+            margin-top: 10px;
+            margin-bottom: -8px;
+        }
+
+        .aside ul a {
+            /* color: rgb(252, 248, 7); */
+            color: rgb(186, 187, 181);
+            font-size: 10px;
+            font-weight: bold;
+
+        }
+
+        .aside ul a:hover {
+            color: black;
+            font-size: 12px;
+            font-weight: bold;
+            background: rgb(219, 219, 106);
+        }
+
+        .aside ul li a {
+            color: rgb(181, 192, 181);
+            font-size: 10px;
+            padding-left: 7px;
+        }
+
+        .aside ul li a:hover {
+            color: black;
+            font-size: 12px;
+            background: rgb(219, 219, 106);
+          
+        }
+
+        /* .aside, ul li:nth-child(0) {
+color:green;
+} */
+        .footer {
+            grid-area: footer;
+            text-align: center;
+            border: 1px solid grey;
+            background-color: rgb(44, 49, 44);
+        }
+
+        /* to make content hidden */
+        .content {
+            grid-area: content;
+            visibility: hidden;
+        }
+
+        code {
+            color: rgb(159, 157, 160);
+            background: rgb(58, 56, 56);
+            padding-left: 10px;
+            padding-right: 10px;
+            border-right: 5px solid red;
+            border-left: 5px solid red;
+            font-size: 14px;
+        }
+
+        /* ul li ul li:last-child{
+    border: 1px solid blue;
+    color: red;
+    background: yellow;
+} */
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 1;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+        hr{
+            background:rgb(146, 143, 143);
+            border:0;
+            height: .5px;
+            
+        }
+
+        /* input{
+      color:rgb(202, 187, 187);
+      background: rgb(202, 187, 187);
+  } */
+    </style>
+</head>
+
+<!-- <body> -->
+
+<!-- <body onload="fnc_fullscreen()"> -->
+<body onload="loadElement('DIV',clock)">
+
+    <div class="grd">
+        <div class="header">
+            <div id="header_left">
+                <button data-toggle-fullscreen>Toggle Fullscreen</button>
+                <button id="fullscreen_button" onclick="openFullscreen()">&#x2610;</button>
+                <!-- <button id="fullscreen_button" onclick="closeFullscreen();">&#x2613;</button> -->
+
+            </div>
+            <div id="header_mid">
+                <h2>Resume: Mosharraf Hossain</h2>
+            </div>
+            <div id="header_right"><button id="fullscreen_button" onclick="closeFullscreen();">&#x2613;</button>
+            </div>
+
+        </div>
+        <div class="nav">
+            
+                <a href="http://localhost:8080/resume copy.html">Home</a>
+                <a href="http://localhost:8080/resume_education.html">Education</a>
+                <a href="#test">Experience</a>
+                <a href="#">Hobby</a>
+                <a href="mailto:drmhossain@gmail.com">Contact:<span style="color:rgb(42, 17, 185); background-color: rgb(231, 227, 227);border-radius: 5%;padding:1px 5px 1px 5px">drmhossain@gmail.com</span></a>
+
+                        
+               
+            
+        </div>
+        <div class="toc">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
+        </div>
+
+
+
+        <div class="content_display">
+            <!-- <label style="font-size: 10px;color: white;" for="color">Select Color:</label>
+            <input id="bg_color"  type="color" value="#000000">
+            <input style="color:white;background:rgb(170, 13, 13);font-size: 10px;" type="button"onclick="changeBackgroundColor()" value="Apply Backgroud">
+            <input style="color:white;background:rgb(170, 13, 13);font-size: 10px;" type="button "onclick="changeFontColor()" value="Apply Font Color"> -->
+
+            <label style="margin-left:60px;font-size: 10px;color: white;" for="color">Select Color:</label>
+
+            <button style="border:none;background: rgb(44, 44, 48);"> <input
+                    style="width:20px; height:20px;background: rgb(44, 44, 48);cursor:pointer;border:none;"
+                    id="bg_color" type="color" value="#0000ff"></button>
+
+            <button
+                style="color:white;background: rgb(44, 44, 48);cursor:pointer;border:solid rgb(75, 75, 80);font-size: 09px;"
+                onclick="changeBackgroundColor()">Change Background</button>
+            <button
+                style="color:white;background: rgb(44, 44, 48);cursor:pointer;border:solid rgb(75, 75, 80);font-size: 09px;"
+                onclick="changeFontColor()">Change Font Color</button>
+
+
+            <div id="content_display_id" style="margin-top: 10px">
+            </div>
+        </div>
+
+        
+        <div class="aside" id="aside_id">
+            <div style="overflow:auto; border:.5px solid rgb(48, 46, 46);padding: 10px;margin-top: 0px;background: rgb(63, 63, 63);">
+                <p style="font-size:10px;margin-bottom: 5px; color: rgb(186, 187, 181);">Please click menu to display RESUME in the left pan:</p> <hr style=" background:rgb(141, 137, 137);height: .5px;border:0;">
+
+                <!-- CONTENT LOADING FUNCTION CALL WITH BUTTON. DIFFERENT FUNCTION PARAMETER REQUIRES TO CHANGE THE CONTENT [PROVIDING ITS ID] -->
+                <input type="button" onclick="loadElement('DIV', intro)" value="Introduction"> <br>
+                <input type="button" onclick="loadElement('DIV', brief)" value="Brief Resume"> <br>
+                <input type="button" onclick="loadElement('DIV', details)" value="Details Resume"> <br>
+                <input type="button" onclick="loadElement('DIV',all)" value="All"> <br>
+                <input type="button" onclick="loadElement('DIV',clock)" value="Clock"> <br>
+            </div>
+
+            <div style="overflow:auto; border:.5px solid rgb(48, 46, 46);padding: 10px;margin-top: 0px;background: rgb(63, 63, 63);">
+            <!-- LINKS -->
+            <h5 style="margin-bottom: -3px;">Links:</h5>
+            <ul><a href="https://lab.github.com/" target="_blank">GitHub</a> </li>
+            </ul>
+            <ul>Media Query:
+                <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">Media
+                        Query:Mozilla</a> <br></li>
+                <li><a href="https://www.w3schools.com/css/css_rwd_mediaqueries.asp" target="_blank">Media Query:W3School</a>
+                </li>
+            </ul>
+            <ul>Web Dev:Online Courses
+                <li id="moz"><a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">Media
+                        Query:Mozilla</a> <br></li>
+                <li><a href="https://www.w3schools.com/css/css_rwd_mediaqueries.asp">Media Query:W3School</a></li>
+                <li><a href="https://www.freecodecamp.org/" target="_blank">Free Code Camp</a> <br></li><br>
+
+            </ul>
+            <ul>Gif:
+                <li><a href="https://gifs-as-documentation.readthedocs.io/en/latest/" target="_blank"> Animated gif for document
+                        file</a> <br></li>
+                <li><a href="https://www.format.com/magazine/resources/photography/make-gif-in-photoshop" target="_blank"> gif with
+                        Photoshop</a> <br></li>
+
+            </ul>
+            <ul>SVG:
+                <li><a href="https://www.w3schools.com/graphics/svg_examples.asp" target="_blank">SVG: W3School</a> <br></li>
+            </ul>
+
+            <!-- END OF LINKS -->
+        </div>
+
+        </div>
+        <div class="footer">
+            <h3>Footer</h3>
+        </div>
+        <div class="content">
+            <h3>Content</h3>
+            Ipsum itaque, veritatis sunt libero obcaecati earum maxime error iure?
+            Ipsum itaque, veritatis sunt libero obcaecati earum maxime error iure?
+            <article id="div_display">
+                <h4>THIS IS A SUB HEADing</h4>
+                <HR>
+                </HR>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis, provident!
+                    Ipsum itaque, veritatis sunt libero obcaecati earum maxime error iure?
+                    Consequatur iure laborum quaerat unde reprehenderit repellendus amet assumenda libero.
+                    Eligendi sint sed et natus nihil quidem saepe autem molestias!
+                    Velit at repellat quas mollitia placeat tempore sunt consequuntur repellendus!
+                    Nostrum, delectus commodi voluptate ut fugiat ex? Possimus, sit nulla.
+                    Consequatur reiciendis ad illum corporis laboriosam expedita excepturi ipsum assumenda.</p>
+               
+            </article>
+            <div id="clock">
+                <!-- DISPLAY CLOCK IN A BUTTON VALUE WITH APP HEADING -->
+                <button id="datetime"></button>
+                <script>
+                    //----------FOLLOING IS CLOCK WITH TIME UPDATE-------\\
+                    setInterval(function () {
+                        var date = new Date();
+                        // var format = "YYYY-MMM-DD DDD";
+                        var format = "MMM-DD-YYYY DDD";
+                        dateConvert(date, format)
+                    }, 1);
+
+                    function dateConvert(dateobj, format) {
+                        var year = dateobj.getFullYear();
+                        var month = ("0" + (dateobj.getMonth() + 1)).slice(-2);
+                        var date = ("0" + dateobj.getDate()).slice(-2);
+                        var hours = ("0" + dateobj.getHours()).slice(-2);
+                        var minutes = ("0" + dateobj.getMinutes()).slice(-2);
+                        var seconds = ("0" + dateobj.getSeconds()).slice(-2);
+                        var day = dateobj.getDay();
+                        var months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+                        var converted_date = "";
+
+                        switch (format) {
+                            case "YYYY-MM-DD":
+                                converted_date = year + "-" + month + "-" + date;
+                                break;
+                            // case "YYYY-MMM-DD DDD":
+                            case "MMM-DD-YYYY DDD":
+                                converted_date = months[parseInt(month) - 1] + "-" + date + "-" + year
+                                    + " " + hours + ":" + minutes + ":" + seconds;
+                                // converted_date = year + "-" + months[parseInt(month) - 1] + "-" + date
+                                //     + " " + hours + ":" + minutes + ":" + seconds;
+                                break;
+                        }
+                        //return converted_date;
+                        // to show it I used innerHTMl in a <button> tag
+                        document.getElementById("datetime").innerHTML = "DATE AND TIME <br>" + converted_date;
+                    }
+
+                </script>
+                <!-- END OF CLOCK CODE -->
+            </div>
+        </div>
+    </div>
+
+
+    <!--this div is outside grid  -->
+    <div id="div_outsice_grd">
+
+        <!-- ARTICLES -->
+        <div id="intro">
+            <!-- <marquee> Please hover over this image to hire me!</marquee> -->
+
+            <img src="mh.jpg" alt="Avatar" style="padding-top:px;width:100px;height:100px;" />
+
+            <p style="padding-bottom:0%">Mosharraf Hossain</p>
+            <p style="font-size: 8px;">Birth Date: 2nd Aug, 1954</p>
+            <p>A Physician 66 yrs, recently <a style="color:rgb(247, 223, 7)"
+                    href="#page address">UNEMPLOID.<sup>&#8663;</sup></a></p>
+            <p>Have life-long<em> passion</em> to be an <a style="color:yellow" href="#page address">WEB
+                    DEVEOPER.<sup>&#8663;</sup></a></p>
+            <p><em>Give me an opportunity to prove myself that I am benificial for you.</em> </p>
+            <!-- <p>life-long dream will come true, will increase my skill, hopefully provide means for my better
+                                survival.</p> -->
+        </div>
+
+
+       <!-- START OF BRIEF RESUME -->
+       <div class="midcol" id="brief">
+        <header style="text-align: center;text-transform: capitalize;">
+            <h3><u>resume in brief</u></h3>
+        </header>
+        <dl>
+            <dt style="color:white; width:auto;padding-left: 30px; text-align: left;">
+                <em><b>Experience:Medical: Medical IT</b></em></dt><br>
+            <dd style="text-align: justify;padding-right:25px;">
+                Today I am going to help you pick the correct version of
+                Node JS to use. When you are just getting started and about to
+                download Node JS, you will be present with 2 confusing versions to choose from. It’s not a big
+                of a
+                deal but
+
+            </dd>
+        </dl>
+        <hr>
+        <br>
+
+        <dl>
+            <dt style="color:white; width:auto;padding-left:30px; text-align: left;">
+                <em><b>Experience:information technology</b></em></dt><br>
+            <dd style="text-align: justify;padding-right: 25px;">
+                Today I am going to help you pick the correct version of
+                Node JS to use. When you are just getting started and about to
+                download Node JS, you will be present with 2 confusing versions to choose from. It’s not a big
+                of a
+                deal but
+
+            </dd>
+        </dl>
+        <hr>
+
+        <dl>
+            <dt style="color:white; width:auto;padding-left: 30px; text-align: left;">
+                <em><b>hobbies:</b></em></dt><br>
+            <dd style="text-align: justify;padding-right: 25px;">
+                Today I am going to help you pick the correct version of
+                Node JS to use. When you are just getting started and about to
+                download Node JS, you will be present with 2 confusing versions to choose from. It’s not a big
+                of a
+                deal but
+            </dd>
+        </dl>
+        <hr>
+        </div>
+         <!-- START OF DETAILS RESUME -->
+         <div class="rtcol" class="center" id="details" style="Padding:25px">
+
+            <header style="text-align: center;text-transform: capitalize;">
+              <h3><u>resume in details</u></h3>
+            </header>
+      
+            <!-- experience in information technology -->
+           
+              <details id="it">
+                <summary>Experience:IT</summary>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe nobis
+                  culpa dicta nemo repellat eos consequuntur ab autem delectus, alias
+                  a eum labore recusandae dolor dolores dolorum! Saepe, molestias
+                  distinctio.
+                </p>
+              </details>
+              <details id="it">
+                <summary>Experience: Medical</summary>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe nobis
+                  culpa dicta nemo repellat eos consequuntur ab autem delectus, alias
+                  a eum labore recusandae dolor dolores dolorum! Saepe, molestias
+                  distinctio.
+                </p>
+              </details>
+              <details id="it">
+                <summary>Hobbies</summary>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe nobis
+                  culpa dicta nemo repellat eos consequuntur ab autem delectus, alias
+                  a eum labore recusandae dolor dolores dolorum! Saepe, molestias
+                  distinctio.
+                </p>
+              </details>
+          
+    </div>
+     <!-- END OF DETAILS RESUME -->
+    </div>
+    <!-- END OF BRIEF RESUME -->
+
+    
+           
+        <article id="">
+        
+        </article>
+        <!-- END: article media query -->
+
+
+        <!-- END OF ARTICLES -->
+
+    </div>
+
+    <script>
+
+
+        //change bg attribute
+
+        function changeBackgroundColor() {
+            document.getElementById('element_id').style.background = document.getElementById('bg_color').value;
+        }
+        function changeFontColor() {
+            document.getElementById('element_id').style.color = document.getElementById('bg_color').value;
+        }
+    </script>
+    <script>
+        //'FULL SCREEN' BUTTON
+        var elem = document.documentElement;
+        function openFullscreen() {
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { /* Firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                elem.msRequestFullscreen();
+            }
+        }
+        // 'CLOSE FULL SCREEN' BUTTON
+        function closeFullscreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+    </script>
+    <script>
+
+        //GENERIC ELEMENT CREATION TO HOLD CONTENT FROM ANY DOME ELEMENT
+        function loadElement(creating_element_type, content_id) {
+            //clear previous content
+            content_display_id.innerHTML = '';
+
+            //passing element type for new elemet as function's 1st parameter
+            let dom_element = document.createElement(creating_element_type);
+            let dom_element_attribute = document.createAttribute('id');
+            dom_element_attribute.value = "element_id";
+            dom_element.setAttributeNode(dom_element_attribute);
+            document.body.appendChild(dom_element);
+
+            //passing id of the content as function's [loadElement()] 2nd parameter
+            element_id.innerHTML = content_id.innerHTML;
+            content_display_id.appendChild(element_id);
+
+            //formating the content on the fly
+            element_id.style.padding = "30px";
+            element_id.style.marginTop = "1px";
+            element_id.style.border = "12px grey solid";
+            element_id.style.boxShadow = "3px 3px 2px black";
+            element_id.style.fontFamily = 'lucida console';
+            element_id.style.borderRadius = '15px';
+            element_id.style.fontSize = '12px';
+            element_id.style.textShadow = "1px 1px 1px black";
+            // element_id.style.color = 'white';
+            element_id.style.color = 'rgb(186, 187, 181)';
+            // element_id.style.height = '300px';
+            element_id.style.overflow = 'auto';
+            // element_id.style.background = '#0000ff';
+            element_id.style.background = '#rgb(63, 63, 63)';
+            element_id.style.width = '70%';
+            element_id.style.height = '360px';
+            element_id.style.alignContent = `center`;
+            element_id.style.marginLeft = `50px`;
+            // element_id.style. resize= 'vertical';
+        }
+    </script>
+  <!-- <script>
+    // Fetch all the details element.
+const details = document.querySelectorAll("details");
+
+// Add the onclick listeners.
+details.forEach((targetDetail) => {
+  targetDetail.addEventListener("click", () => {
+    // Close all the details that are not targetDetail.
+    details.forEach((detail) => {
+      if (detail !== targetDetail) {
+        detail.removeAttribute("open");
+      }
+    });
+  });
+});
+    </script> -->
+
+
+<!-- TOGGLE FULLSCREEN CODES -->
+    <script>
+        /**
+ * Element.requestFullScreen() polyfill
+ * @author Chris Ferdinandi
+ * @license MIT
+ */
+if (!Element.prototype.requestFullscreen) {
+	Element.prototype.requestFullscreen = Element.prototype.mozRequestFullscreen || Element.prototype.webkitRequestFullscreen || Element.prototype.msRequestFullscreen;
+}
+
+/**
+ * document.exitFullScreen() polyfill
+ * @author Chris Ferdinandi
+ * @license MIT
+ */
+if (!document.exitFullscreen) {
+	document.exitFullscreen = document.mozExitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen;
+}
+
+/**
+ * document.fullscreenElement polyfill
+ * Adapted from https://shaka-player-demo.appspot.com/docs/api/lib_polyfill_fullscreen.js.html
+ * @author Chris Ferdinandi
+ * @license MIT
+ */
+if (!document.fullscreenElement) {
+
+	Object.defineProperty(document, 'fullscreenElement', {
+		get: function() {
+			return document.mozFullScreenElement || document.msFullscreenElement || document.webkitFullscreenElement;
+		}
+	});
+
+	Object.defineProperty(document, 'fullscreenEnabled', {
+		get: function() {
+			return document.mozFullScreenEnabled || document.msFullscreenEnabled || document.webkitFullscreenEnabled;
+		}
+	});
+}
+
+document.addEventListener('click', function (event) {
+
+	// Ignore clicks that weren't on the toggle button
+	if (!event.target.hasAttribute('data-toggle-fullscreen')) return;
+
+	// If there's an element in fullscreen, exit
+	// Otherwise, enter it
+	if (document.fullscreenElement) {
+		document.exitFullscreen();
+	} else {
+		document.documentElement.requestFullscreen();
+	}
+
+}, false);
+    </script>
+
+<script type="text/javascript">
+    function fnc_fullscreen()
+     {
+     window.moveTo(0,0);
+     window.resizeTo(screen.availWidth,screen.availHeight);
+     }
+    </script>
+</body>
+
+</html>
