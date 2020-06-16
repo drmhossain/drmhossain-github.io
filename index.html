@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume:One page style</title>
+    <title>one page style resume/bio-data</title>
 
     <!-- <link rel="stylesheet" href="toc_copy.css">
     <script src="toc_copy.js"></script> -->
@@ -46,10 +46,12 @@
             /* font-weight: bold; */
             font-size: 14px;
             padding-top: 15px;
+            border: none;
         }
 
         details>li {
             padding-left: 25px;
+            border: none;
         }
 
         /* li>ul>li{
@@ -67,7 +69,7 @@
 
         .grd {
             display: grid;
-            grid-template-columns: 1fr 600px 1fr;
+            grid-template-columns: 1fr 3fr 1fr;
             grid-template-areas:
                 'header header header'
                 'nav nav nav'
@@ -78,7 +80,7 @@
             grid-gap: 1px;
            background: rgb(63, 63, 63);
             color: rgb(227, 227, 233);
-            height: 100%vh;
+            /* height: 100%vh; */
             position: fixed;
         }
 
@@ -93,16 +95,18 @@
 
         #header_left {
             grid-area: 1/1/2/2;
+            width: 200px;
             text-align: left;
             color: rgb(151, 81, 24);
-            border:none
+            border:none;
+            /* background-color: white; */
         }
 
         #header_left button {
             color: rgb(255, 255, 255);
             background: blue;
             border: .5px solid blue;
-            font-size: 18px;
+            font-size: 10px;
         }
 
 
@@ -116,7 +120,7 @@
            margin-bottom: -150px;
            text-shadow: 4px 3px 5px rgb(19, 26, 2);
            /* color: rgb(157, 167, 163); */
-            color:rgb(16, 161, 28);
+            color:rgb(168, 168, 165);
             text-align: center;
           
             
@@ -126,6 +130,7 @@
             grid-area: 1/3/2/4;
             text-align: right;
             border: none;
+            width: 200px;
         }
 
         #header_right button {
@@ -148,16 +153,18 @@
         .nav a {
             /* grid-area: nav; */
             text-align: center;
-            background: rgb(44, 44, 48);
+            background: rgb(63,63,63);
             color: white;
-            border-bottom: solid .5px grey;
-            border-top: solid .5px grey;
+            border-bottom: solid .5px rgb(63,63,63);
+            border-top: solid .5px rgb(63,63,63);
             padding-left: 5px;
             font-size: 12px;
+            text-decoration: none;
+            padding: 2px;
         }
         .nav a:hover {
-            background: rgb(214, 97, 218);
-            color: black;
+            /* background: rgb(19, 216, 104); */
+            border: 1px solid white;
         }
 
         .toc {
@@ -173,22 +180,38 @@
             height: 100%vh;
             padding:10px;
         }
-
+/*                 style="color:white;background: rgb(63,63,63);cursor:pointer;
+border:solid rgb(63,63,63);font-size: 09px;"
+ */
         .content_display {
             grid-area: content_display;
             overflow: auto;
-            margin-left: -12px;
+            /* margin-left: -12px; */
             height:100%vh;
-            background: rgb(63, 63, 63);
-            border:1px solid rgb(26, 5, 21);
-           
-
+            /* background: rgb(63, 63, 63); */
+            background: content_display_id;
+            border:0px solid rgb(26, 5, 21);
+        }
+        .content_display > button{
+            color: rgb(255, 255, 255);
+            background-color: rgb(63,63,63);
+            border: none;
+            font-size: 9px;
+        }
+        .content_display > button:hover{
+            /* background-color: rgb(255, 255, 255); */
+            border:1px solid rgb(160, 155, 155);
+            cursor: pointer;
+        }
+        #content_display_id{
+            background-color: rgb(63,63,63);
+            margin: 30px;
         }
 
         .aside {
             grid-area: aside;
             /* color: white; */
-            color: rgb(186, 187, 181);
+            color: rgb(44, 4, 26);
             border: solid .5px grey;
             padding: 10px;
             height:100%vh;
@@ -311,13 +334,18 @@ color:green;
             background:rgb(146, 143, 143);
             border:0;
             height: .5px;
+            color: green;
             
         }
 
-        /* input{
-      color:rgb(202, 187, 187);
-      background: rgb(202, 187, 187);
-  } */
+       summary{
+        outline: none;
+        color: white;
+       }
+       details{
+           /* border: 5px solid green;
+           color: yellow; */
+       }
     </style>
 </head>
 
@@ -329,13 +357,11 @@ color:green;
     <div class="grd">
         <div class="header">
             <div id="header_left">
-                <button data-toggle-fullscreen>Full Scr/Exit</button>
-                <!-- <button id="fullscreen_button" onclick="openFullscreen()">&#x2610;</button> -->
-                <!-- <button id="fullscreen_button" onclick="closeFullscreen();">&#x2613;</button> -->
-
+                <button data-toggle-fullscreen>FullScr/Esc</button>
             </div>
             <div id="header_mid">
-                <h2>Resume: Name of the Person</h2>
+                <!-- TO TRANSFORM INTO PLAIN TEXT '<' AND '>' SHOULD BE REPLACE WITH &lt AND &gt -->
+                <h2>Name: Mr/Ms XYZ</h2>
             </div>
             <div id="header_right">
                 <!-- <button id="fullscreen_button" onclick="closeFullscreen();">&#x2613;</button> -->
@@ -348,54 +374,30 @@ color:green;
                 <a href="http://localhost:8080/resume_education.html">Education</a>
                 <a href="#test">Experience</a>
                 <a href="#">Hobby</a>
-                <a href="mailto:drmhossain@gmail.com">Contact:<span style="color:rgb(42, 17, 185); background-color: rgb(231, 227, 227);border-radius: 5%;padding:1px 5px 1px 5px">drmhossain@gmail.com</span></a>
+            <span style="float:right;margin-right:20px;"><a href="mailto:xyz@example.com"><span style="color:yellow">Contact: xyz@mydomain.com</span></a></span>
 
                         
                
             
         </div>
         <div class="toc">
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pariatur nesciunt itaque laudantium cum laboriosam at obcaecati officiis aspernatur nam provident deleniti. Facilis officia dolorem excepturi suscipit itaque. Repellendus.
-        </div>
+-:PLACEHOLDER FOR RELATED CONTENT:-        </div>
 
-
+        rgb(63,63,63)
 
         <div class="content_display">
-            <!-- <label style="font-size: 10px;color: white;" for="color">Select Color:</label>
-            <input id="bg_color"  type="color" value="#000000">
-            <input style="color:white;background:rgb(170, 13, 13);font-size: 10px;" type="button"onclick="changeBackgroundColor()" value="Apply Backgroud">
-            <input style="color:white;background:rgb(170, 13, 13);font-size: 10px;" type="button "onclick="changeFontColor()" value="Apply Font Color"> -->
-
             <label style="margin-left:60px;font-size: 10px;color: white;" for="color">Select Color:</label>
 
-            <button style="border:none;background: rgb(44, 44, 48);"> <input
-                    style="width:20px; height:20px;background: rgb(44, 44, 48);cursor:pointer;border:none;"
+            <button style="border:none;background: rgb(63,63,63);"> <input
+                    style="width:20px; height:17px;background: rgb(63,63,63);cursor:pointer;border:none;"
                     id="bg_color" type="color" value="#0000ff"></button>
 
-            <button
-                style="color:white;background: rgb(44, 44, 48);cursor:pointer;border:solid rgb(75, 75, 80);font-size: 09px;"
-                onclick="changeBackgroundColor()">Change Background</button>
-            <button
-                style="color:white;background: rgb(44, 44, 48);cursor:pointer;border:solid rgb(75, 75, 80);font-size: 09px;"
-                onclick="changeFontColor()">Change Font Color</button>
+            <button onclick="changeBackgroundColor()">Change Background</button>
+            <button onclick="changeFontColor()">Change Font Color</button>
 
-
-            <div id="content_display_id" style="margin-top: 10px">
+            <!-- <div id="content_display_id" style="margin-top: 10px;">
+            </div> -->
+            <div id="content_display_id">
             </div>
         </div>
 
@@ -415,7 +417,9 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pari
             <div style="overflow:auto; border:.5px solid rgb(48, 46, 46);padding: 10px;margin-top: 0px;background: rgb(63, 63, 63);">
             <!-- LINKS -->
             <h5 style="margin-bottom: -3px;">Links:</h5>
-            <ul><a href="https://lab.github.com/" target="_blank">GitHub</a> </li>
+            <ul><a href="https://developer.mozilla.org/en-US/docs/Learn" target="_blank">MDN: Learn weg development</a>
+            </ul>
+            <ul><a href="https://lab.github.com/" target="_blank">GitHub</a>
             </ul>
             <ul>Media Query:
                 <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">Media
@@ -441,6 +445,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pari
             <ul>SVG:
                 <li><a href="https://www.w3schools.com/graphics/svg_examples.asp" target="_blank">SVG: W3School</a> <br></li>
             </ul>
+            <ul><a href="http://detectmobilebrowsers.com//" target="_blank">Mobile Screen Test</a> </li>
 
             <!-- END OF LINKS -->
         </div>
@@ -520,11 +525,11 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pari
         <div id="intro">
             <!-- <marquee> Please hover over this image to hire me!</marquee> -->
 
-            <img src="mh.jpg" alt="Avatar" style="padding-top:px;width:100px;height:100px;" />
+            <img src="img/avatar.jpeg" alt="Avatar" style="padding-top:px;width:100px;height:100px;" />
 
-            <p style="padding-bottom:0%">Person's Name</p>
-            <p style="font-size: 8px;">Birth Date: Jan 1, 1954</p>
-            <p>A Physician 66 yrs, recently <a style="color:rgb(247, 223, 7)"
+            <p style="padding-bottom:0%">Name: Mr/Ms XYZ</p>
+            <p style="font-size: 11px;">Birth Date: 12nd Jan, 1988</p>
+            <p>Age 32 yrs, recently <a style="color:rgb(247, 223, 7)"
                     href="#page address">UNEMPLOID.<sup>&#8663;</sup></a></p>
             <p>Have life-long<em> passion</em> to be an <a style="color:yellow" href="#page address">WEB
                     DEVEOPER.<sup>&#8663;</sup></a></p>
@@ -635,86 +640,88 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus velit, pari
 
     </div>
 
-    <script>
+   
+</body>
+<script>
 
 
-        //change bg attribute
+    //change bg attribute
 
-        function changeBackgroundColor() {
-            document.getElementById('element_id').style.background = document.getElementById('bg_color').value;
+    function changeBackgroundColor() {
+        document.getElementById('element_id').style.background = document.getElementById('bg_color').value;
+    }
+    function changeFontColor() {
+        document.getElementById('element_id').style.color = document.getElementById('bg_color').value;
+    }
+</script>
+<script>
+    //'FULL SCREEN' BUTTON
+    var elem = document.documentElement;
+    function openFullscreen() {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
         }
-        function changeFontColor() {
-            document.getElementById('element_id').style.color = document.getElementById('bg_color').value;
+    }
+    // 'CLOSE FULL SCREEN' BUTTON
+    function closeFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
         }
-    </script>
-    <script>
-        //'FULL SCREEN' BUTTON
-        var elem = document.documentElement;
-        function openFullscreen() {
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.mozRequestFullScreen) { /* Firefox */
-                elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE/Edge */
-                elem.msRequestFullscreen();
-            }
-        }
-        // 'CLOSE FULL SCREEN' BUTTON
-        function closeFullscreen() {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            }
-        }
-    </script>
-    <script>
+    }
+</script>
+<script>
 
-        //GENERIC ELEMENT CREATION TO HOLD CONTENT FROM ANY DOME ELEMENT
-        function loadElement(creating_element_type, content_id) {
-            //clear previous content
-            content_display_id.innerHTML = '';
+    //GENERIC ELEMENT CREATION TO HOLD CONTENT FROM ANY DOME ELEMENT
+    function loadElement(creating_element_type, content_id) {
+        //clear previous content
+        content_display_id.innerHTML = '';
 
-            //passing element type for new elemet as function's 1st parameter
-            let dom_element = document.createElement(creating_element_type);
-            let dom_element_attribute = document.createAttribute('id');
-            dom_element_attribute.value = "element_id";
-            dom_element.setAttributeNode(dom_element_attribute);
-            document.body.appendChild(dom_element);
+        //passing element type for new elemet as function's 1st parameter
+        let dom_element = document.createElement(creating_element_type);
+        let dom_element_attribute = document.createAttribute('id');
+        dom_element_attribute.value = "element_id";
+        dom_element.setAttributeNode(dom_element_attribute);
+        document.body.appendChild(dom_element);
 
-            //passing id of the content as function's [loadElement()] 2nd parameter
-            element_id.innerHTML = content_id.innerHTML;
-            content_display_id.appendChild(element_id);
+        //passing id of the content as function's [loadElement()] 2nd parameter
+        element_id.innerHTML = content_id.innerHTML;
+        content_display_id.appendChild(element_id);
 
-            //formating the content on the fly
-            element_id.style.padding = "30px";
-            element_id.style.marginTop = "1px";
-            element_id.style.border = "12px grey solid";
-            element_id.style.boxShadow = "3px 3px 2px black";
-            element_id.style.fontFamily = 'lucida console';
-            element_id.style.borderRadius = '15px';
-            element_id.style.fontSize = '12px';
-            element_id.style.textShadow = "1px 1px 1px black";
-            // element_id.style.color = 'white';
-            element_id.style.color = 'rgb(186, 187, 181)';
-            // element_id.style.height = '300px';
-            element_id.style.overflow = 'auto';
-            // element_id.style.background = '#0000ff';
-            element_id.style.background = '#rgb(63, 63, 63)';
-            element_id.style.width = '70%';
-            element_id.style.height = '360px';
-            element_id.style.alignContent = `center`;
-            element_id.style.marginLeft = `50px`;
-            // element_id.style. resize= 'vertical';
-        }
-    </script>
-  <!-- <script>
+        //formating the content on the fly
+        element_id.style.padding = "30px";
+        element_id.style.marginTop = "-21px";
+        element_id.style.border = "12px grey solid";
+        element_id.style.boxShadow = "3px 3px 2px black";
+        element_id.style.fontFamily = 'lucida console';
+        element_id.style.borderRadius = '15px';
+        element_id.style.fontSize = '12px';
+        // element_id.style.textShadow = "1px 1px 1px black";
+        // element_id.style.color = 'white';
+        element_id.style.color = 'rgb(186, 187, 181)';
+        element_id.style.overflow = 'auto';
+        // element_id.style.background = '#0000ff';
+        element_id.style.background = '#rgb(63, 63, 63)';
+        element_id.style.width = '90%';
+        // element_id.style.height = '360px';
+        element_id.style.height = '360px';
+        element_id.style.alignContent = `center`;
+        // element_id.style.marginLeft = `0px`;
+        // element_id.style. resize= 'vertical';
+    }
+</script>
+<!-- <script>
     // Fetch all the details element.
 const details = document.querySelectorAll("details");
 
@@ -733,69 +740,66 @@ details.forEach((targetDetail) => {
 
 
 <!-- TOGGLE FULLSCREEN CODES -->
-    <script>
-        /**
- * Element.requestFullScreen() polyfill
- * @author Chris Ferdinandi
- * @license MIT
- */
-if (!Element.prototype.requestFullscreen) {
-	Element.prototype.requestFullscreen = Element.prototype.mozRequestFullscreen || Element.prototype.webkitRequestFullscreen || Element.prototype.msRequestFullscreen;
-}
+<script>
+    /**
+* Element.requestFullScreen() polyfill
+* @author Chris Ferdinandi
+* @license MIT
+*/
+    if (!Element.prototype.requestFullscreen) {
+        Element.prototype.requestFullscreen = Element.prototype.mozRequestFullscreen || Element.prototype.webkitRequestFullscreen || Element.prototype.msRequestFullscreen;
+    }
 
-/**
- * document.exitFullScreen() polyfill
- * @author Chris Ferdinandi
- * @license MIT
- */
-if (!document.exitFullscreen) {
-	document.exitFullscreen = document.mozExitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen;
-}
+    /**
+     * document.exitFullScreen() polyfill
+     * @author Chris Ferdinandi
+     * @license MIT
+     */
+    if (!document.exitFullscreen) {
+        document.exitFullscreen = document.mozExitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen;
+    }
 
-/**
- * document.fullscreenElement polyfill
- * Adapted from https://shaka-player-demo.appspot.com/docs/api/lib_polyfill_fullscreen.js.html
- * @author Chris Ferdinandi
- * @license MIT
- */
-if (!document.fullscreenElement) {
+    /**
+     * document.fullscreenElement polyfill
+     * Adapted from https://shaka-player-demo.appspot.com/docs/api/lib_polyfill_fullscreen.js.html
+     * @author Chris Ferdinandi
+     * @license MIT
+     */
+    if (!document.fullscreenElement) {
 
-	Object.defineProperty(document, 'fullscreenElement', {
-		get: function() {
-			return document.mozFullScreenElement || document.msFullscreenElement || document.webkitFullscreenElement;
-		}
-	});
+        Object.defineProperty(document, 'fullscreenElement', {
+            get: function () {
+                return document.mozFullScreenElement || document.msFullscreenElement || document.webkitFullscreenElement;
+            }
+        });
 
-	Object.defineProperty(document, 'fullscreenEnabled', {
-		get: function() {
-			return document.mozFullScreenEnabled || document.msFullscreenEnabled || document.webkitFullscreenEnabled;
-		}
-	});
-}
+        Object.defineProperty(document, 'fullscreenEnabled', {
+            get: function () {
+                return document.mozFullScreenEnabled || document.msFullscreenEnabled || document.webkitFullscreenEnabled;
+            }
+        });
+    }
 
-document.addEventListener('click', function (event) {
+    document.addEventListener('click', function (event) {
 
-	// Ignore clicks that weren't on the toggle button
-	if (!event.target.hasAttribute('data-toggle-fullscreen')) return;
+        // Ignore clicks that weren't on the toggle button
+        if (!event.target.hasAttribute('data-toggle-fullscreen')) return;
 
-	// If there's an element in fullscreen, exit
-	// Otherwise, enter it
-	if (document.fullscreenElement) {
-		document.exitFullscreen();
-	} else {
-		document.documentElement.requestFullscreen();
-	}
+        // If there's an element in fullscreen, exit
+        // Otherwise, enter it
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            document.documentElement.requestFullscreen();
+        }
 
-}, false);
-    </script>
+    }, false);
+</script>
 
 <script type="text/javascript">
-    function fnc_fullscreen()
-     {
-     window.moveTo(0,0);
-     window.resizeTo(screen.availWidth,screen.availHeight);
-     }
-    </script>
-</body>
-
+    function fnc_fullscreen() {
+        window.moveTo(0, 0);
+        window.resizeTo(screen.availWidth, screen.availHeight);
+    }
+</script>
 </html>
