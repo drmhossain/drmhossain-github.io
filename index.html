@@ -5,387 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>one page style resume/bio-data</title>
-
-    <!-- <link rel="stylesheet" href="toc_copy.css">
-    <script src="toc_copy.js"></script> -->
-    <style>
-        * {
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            /* color: rgb(202, 187, 187); */
-        }
-
-        /* ------------------------------------------------------- */
-        /* MEDIA QUERY: how to */
-
-        /* Extra small devices (phones, 600px and down) */
-        /* @media only screen and (max-width: 600px) {...} */
-
-        /* Small devices (portrait tablets and large phones, 600px and up) */
-        /* @media only screen and (min-width: 600px) {...} */
-
-        /* Medium devices (landscape tablets, 768px and up) */
-        /* @media only screen and (min-width: 768px) {...} */
-
-        /* Large devices (laptops/desktops, 992px and up) */
-        /* @media only screen and (min-width: 992px) {...} */
-
-        /* Extra large devices (large laptops and desktops, 1200px and up) */
-        /* @media only screen and (min-width: 1200px) {...} */
-        /* 
-@media only screen and (orientation: landscape) {
-  body {
-    background-color: lightblue;
-  }
-} */
-        /* ---------------------------------------------------------- */
-        li {
-            list-style-type: none;
-        }
-
-        summary {
-            /* font-weight: bold; */
-            font-size: 14px;
-            padding-top: 15px;
-            border: none;
-            cursor:pointer;
-        }
-
-        details>li {
-            padding-left: 25px;
-            border: none;
-        }
-
-        /* li>ul>li{
-    color: rgb(206, 40, 164);
-} */
-
-        /* div {
-    border: 1px solid rgb(61, 61, 61);
-} */
-
-        /* to make content hidden */
-        #div_outsice_grd {
-            visibility: hidden;
-        }
-
-        .grd {
-            display: grid;
-            grid-template-columns: 1fr 3fr 1fr;
-            grid-template-areas:
-                'header header header'
-                'nav nav nav'
-                'toc content_display aside '
-                'footer footer footer'
-                'content content content';
-            grid-template-rows: 60px 30px 500px 100px auto;
-            grid-gap: 1px;
-           background: rgb(63, 63, 63);
-            color: rgb(227, 227, 233);
-            /* height: 100%vh; */
-            position: fixed;
-        }
-
-        .header {
-            display: grid;
-            grid-area: header;
-            text-align: center;
-            /* background-color: rgb(44, 49, 44); */
-
-            background-color: green
-        }
-
-        #header_left {
-            grid-area: 1/1/2/2;
-            width: 200px;
-            text-align: left;
-            color: rgb(151, 81, 24);
-            border:none;
-            /* background-color: white; */
-        }
-
-        #header_left button {
-            color: rgb(255, 255, 255);
-            background: blue;
-            border: .5px solid blue;
-            font-size: 10px;
-        }
-
-
-        #header_mid {
-            grid-area: 1/2/2/3;
-            border: none;
-            text-align: left; 
-        }
-        
-        #header_mid> h2 {
-           margin-bottom: -150px;
-           text-shadow: 4px 3px 5px rgb(19, 26, 2);
-           /* color: rgb(157, 167, 163); */
-            color:rgb(168, 168, 165);
-            text-align: center;
-          
-            
-        }
-
-        #header_right {
-            grid-area: 1/3/2/4;
-            text-align: right;
-            border: none;
-            width: 200px;
-        }
-
-        #header_right button {
-            color: rgb(255, 255, 255);
-            background: blue;
-            border: .5px solid blue;
-            font-size: 18px;
-
-        }
-
-        .nav {
-            grid-area: nav;
-            text-align: center;
-            background: rgb(63, 63, 63);
-            color: white;
-            border-bottom: solid .5px grey;
-            border-top: solid .5px grey;
-            padding-top: 5px;
-        }
-        .nav a {
-            /* grid-area: nav; */
-            text-align: center;
-            background: rgb(63,63,63);
-            color: white;
-            border-bottom: solid .5px rgb(63,63,63);
-            border-top: solid .5px rgb(63,63,63);
-            padding-left: 5px;
-            font-size: 12px;
-            text-decoration: none;
-            padding: 2px;
-        }
-        .nav a:hover {
-            /* background: rgb(19, 216, 104); */
-            border: 1px solid white;
-        }
-
-        .toc {
-            grid-area: toc;
-            background: rgb(63, 63, 63);
-            color: rgb(173, 169, 169);
-            border: solid .5px grey;
-            margin-right: 15px;
-            border-top: none;
-            border-bottom: none;
-            overflow: auto;
-            font-size: 11px;
-            height: 100%vh;
-            padding:10px;
-        }
-/*                 style="color:white;background: rgb(63,63,63);cursor:pointer;
-border:solid rgb(63,63,63);font-size: 09px;"
- */
-        .content_display {
-            grid-area: content_display;
-            overflow: auto;
-            /* margin-left: -12px; */
-            height:100%vh;
-            /* background: rgb(63, 63, 63); */
-            background: content_display_id;
-            border:0px solid rgb(26, 5, 21);
-        }
-        .content_display > button{
-            color: rgb(255, 255, 255);
-            background-color: rgb(63,63,63);
-            border: none;
-            font-size: 9px;
-        }
-        .content_display > button:hover{
-            /* background-color: rgb(255, 255, 255); */
-            border:1px solid rgb(160, 155, 155);
-            cursor: pointer;
-        }
-        #content_display_id{
-            background-color: rgb(63,63,63);
-            margin: 30px;
-        }
-
-        .aside {
-            grid-area: aside;
-            /* color: white; */
-            color: rgb(44, 4, 26);
-            border: solid .5px grey;
-            padding: 10px;
-            height:100%vh;
-            overflow:auto;
-            border-top:none;
-            /* border-bottom: none; */
-        }
-
-        .aside input {
-            color: rgb(186, 187, 181);
-            font-size: 12px;
-            background: rgb(63, 63, 63);
-            border: none;
-        }
-        .aside input:hover {
-            color: rgb(255, 255, 255);
-            font-size: 12px;
-            background: rgb(156, 79, 172);
-            border: none;
-            cursor: pointer;
-        }
-
-        /* .aside > ul> li {
-  color: rgb(46, 161, 37);
-} */
-
-        .aside ul {
-            /* color: rgb(252, 248, 7); */
-            color: rgb(186, 187, 181);
-            font-size: 12px;
-            margin-left: -30px;
-            margin-top: 10px;
-            margin-bottom: -8px;
-        }
-
-        .aside ul a {
-            /* color: rgb(252, 248, 7); */
-            color: rgb(186, 187, 181);
-            font-size: 10px;
-            font-weight: bold;
-
-        }
-
-        .aside ul a:hover {
-            color: black;
-            font-size: 12px;
-            font-weight: bold;
-            background: rgb(219, 219, 106);
-        }
-
-        .aside ul li a {
-            color: rgb(181, 192, 181);
-            font-size: 10px;
-            padding-left: 7px;
-        }
-
-        .aside ul li a:hover {
-            color: black;
-            font-size: 12px;
-            background: rgb(219, 219, 106);
-          
-        }
-
-        /* .aside, ul li:nth-child(0) {
-color:green;
-} */
-        .footer {
-            grid-area: footer;
-            text-align: center;
-            border: 1px solid grey;
-            background-color: rgb(44, 49, 44);
-        }
-
-        /* to make content hidden */
-        .content {
-            grid-area: content;
-            visibility: hidden;
-        }
-
-        code {
-            color: rgb(159, 157, 160);
-            background: rgb(58, 56, 56);
-            padding-left: 10px;
-            padding-right: 10px;
-            border-right: 5px solid red;
-            border-left: 5px solid red;
-            font-size: 14px;
-        }
-
-        /* ul li ul li:last-child{
-    border: 1px solid blue;
-    color: red;
-    background: yellow;
-} */
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            border-bottom: 1px dotted black;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: black;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-
-            /* Position the tooltip */
-            position: absolute;
-            z-index: 1;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-        }
-        hr{
-            background:rgb(146, 143, 143);
-            border:0;
-            height: .5px;
-            color: green;
-            
-        }
-
-       summary{
-        outline: none;
-        color: white;
-        cursor:pointer;
-       }
-       details{
-           /* border: 5px solid green;
-           color: yellow; */
-       }
-    </style>
+    <link rel="stylesheet" href="assets/js/jquery.min.js">
+    <link rel="stylesheet" href="assets/js/bootstrap.min.js">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/my-styles.css">
+  
 </head>
 
 <!-- <body> -->
 
 <!-- <body onload="fnc_fullscreen()"> -->
-<body onload="loadElement('DIV',clock)">
+<!-- <body onload="loadElement('DIV',clock); applicantName()"> -->
+<body onload="loadElement('DIV',clock);loadElement('DIV',intro);applicantName()">
 
     <div class="grd">
         <div class="header">
-            <div id="header_left">
-                <button data-toggle-fullscreen>FullScr/Esc</button>
-            </div>
-            <div id="header_mid">
-                <!-- TO TRANSFORM INTO PLAIN TEXT '<' AND '>' SHOULD BE REPLACE WITH &lt AND &gt -->
-                <h2>Name: Mr/Ms XYZ</h2>
-            </div>
-            <div id="header_right">
-                <!-- <button id="fullscreen_button" onclick="closeFullscreen();">&#x2613;</button> -->
-            </div>
-
+            <div id="header_left"></div>
+            <div id="header_mid"><p id="applicantname">Name: Job Seeker</p></div>
+            <div id="header_right"> <button data-toggle-fullscreen>FullScr/Esc</button></div>
         </div>
-        <div class="nav">
-            
+
+        <!-- <div class="nav-bar">
                 <a href="http://localhost:8080/resume copy.html">Home</a>
                 <a href="http://localhost:8080/resume_education.html">Education</a>
                 <a href="#test">Experience</a>
                 <a href="#">Hobby</a>
             <span style="float:right;margin-right:20px;"><a href="mailto:xyz@example.com"><span style="color:yellow">Contact: xyz@mydomain.com</span></a></span>
+        </div> -->
 
-                        
-               
+<!-- RESPONSIVE NAV BAR START -->
+<div class="res-nav-bar">
+    <!-- <nav> -->
+        <nav id="override-bootstrap-navbar-container-div"  class="navbar navbar-light navbar-expand-md">
+            <div id="override-bootstrap-navbar-brand-div" class="container-fluid"><a id="override-bootstrap-navbar-brand-div" class="navbar-brand"  href="#">Brand</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+               <!-- 2 OR MORE CLASS FOR SINGLE ELEMENT ACCEPTABLE BUT NOT FOR ID(EVEN DIFFERENT MULTIPLE ID SELECTOR STILL NOT ACCEPTABLE) -->
+               <!-- SO I HAVE TO CHANGE #override-bootstrap-navbar-link-div TO .override-bootstrap-navbar-link-div  -->
+                <div id="navcol-1" class="collapse navbar-collapse override-bootstrap-navbar-link-div">         
+    
+                    <!-- 'id can overide class'. SO, FOR APPLYING CUSTOM STYLE - OVERRIDING BOOTSTRAP CSS FOR <a> USING #override-bootstrap-->
+                    <ul class="nav navbar-nav" id="override-bootstrap">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">First Item</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Second Item</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Third Item</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</div>
+<!-- RESPONSIVE NAV BAR END -->
+
+
+        <div class="toc">
+            <p id="receiver" style="margin-top: 100px;"></p>
             
         </div>
-        <div class="toc">
--:PLACEHOLDER FOR RELATED CONTENT:-        </div>
-
-        rgb(63,63,63)
 
         <div class="content_display">
             <label style="margin-left:60px;font-size: 10px;color: white;" for="color">Select Color:</label>
@@ -396,6 +71,13 @@ color:green;
 
             <button onclick="changeBackgroundColor()">Change Background</button>
             <button onclick="changeFontColor()">Change Font Color</button>
+            <button onclick="changeFontSize()">Change Font Size</button>
+            <select id="font_size" style="border:none;background: rgb(63,63,63);color: white;">
+                <option value="14px">14</option>
+                <option value="16px">16</option>
+                <option value="18px">18</option>
+                <option value="20px">20</option>
+              </select>
 
             <!-- <div id="content_display_id" style="margin-top: 10px;">
             </div> -->
@@ -404,21 +86,22 @@ color:green;
         </div>
 
         
-        <div class="aside" id="aside_id">
-            <div style="overflow:auto; border:.5px solid rgb(48, 46, 46);padding: 10px;margin-top: 0px;background: rgb(63, 63, 63);">
-                <p style="font-size:10px;margin-bottom: 5px; color: rgb(186, 187, 181);">Please click menu to display RESUME in the left pan:</p> <hr style=" background:rgb(141, 137, 137);height: .5px;border:0;">
+        <div class="aside fs" id="aside_id">
+            <div style="overflow:auto; border:10px solid rgb(48, 46, 46);padding: 10px;margin-top: 0px;background: rgb(63, 63, 63);">
+                <p style="font-size:10px;margin-bottom: 5px; color: rgb(186, 187, 181);">Please click menu to display containt in the middle pan:</p> <hr style=" background:rgb(141, 137, 137);height: .5px;border:0;margin-block-start: 0;margin-block-end:0;">
 
-                <!-- CONTENT LOADING FUNCTION CALL WITH BUTTON. DIFFERENT FUNCTION PARAMETER REQUIRES TO CHANGE THE CONTENT [PROVIDING ITS ID] -->
-                <input type="button" onclick="loadElement('DIV', intro)" value="Introduction"> <br>
-                <input type="button" onclick="loadElement('DIV', brief)" value="Brief Resume"> <br>
-                <input type="button" onclick="loadElement('DIV', details)" value="Details Resume"> <br>
-                <!-- <input type="button" onclick="loadElement('DIV',all)" value="All"> <br> -->
-                <input type="button" onclick="loadElement('DIV',clock)" value="Clock"> <br>
-            </div>
+                 <!-- CONTENT LOADING FUNCTION CALL WITH BUTTON. DIFFERENT FUNCTION PARAMETER REQUIRES TO CHANGE THE CONTENT [PROVIDING ITS ID] -->
+                 <input type="button" onclick="loadElement('DIV', intro);applicantName()" value="Introduction"> <br>
+                 <!-- <input type="button" onclick="loadElement('DIV', intro)" value="Introduction"> <br> -->
+                 <input type="button" onclick="loadElement('DIV', brief)" value="Brief Resume"> <br>
+                 <input type="button" onclick="loadElement('DIV', details)" value="Details Resume"> <br>
+                 <!-- <input type="button" onclick="loadElement('DIV',all)" value="All"> <br> -->
+                 <input type="button" onclick="loadElement('DIV',clock)" value="Clock"> <br>
+            </div><hr style="margin-block-start: 0;margin-block-end:0;padding:.5px;">
 
-            <div style="overflow:auto; border:.5px solid rgb(48, 46, 46);padding: 10px;margin-top: 0px;background: rgb(63, 63, 63);">
+            <div class="fs"  style="overflow:auto; border:10px solid rgb(48, 46, 46);padding: 50px;margin-top: 0px;background: rgb(63, 63, 63);">
             <!-- LINKS -->
-            <h5 style="margin-bottom: -3px;">Links:</h5>
+            <p style="margin-bottom: -7px; font-size: 12px; color: whitesmoke;"><u>links</u></p>
             <ul><a href="https://developer.mozilla.org/en-US/docs/Learn" target="_blank">MDN: Learn weg development</a>
             </ul>
             <ul><a href="https://lab.github.com/" target="_blank">GitHub</a>
@@ -429,7 +112,7 @@ color:green;
                 <li><a href="https://www.w3schools.com/css/css_rwd_mediaqueries.asp" target="_blank">Media Query:W3School</a>
                 </li>
             </ul>
-            <ul>Web Dev:Online Courses
+            <ul class="fs">Web Dev:Online Courses
                 <li id="moz"><a
                         href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">Media
                         Query:Mozilla</a> <br></li>
@@ -437,7 +120,7 @@ color:green;
                 <li><a href="https://www.freecodecamp.org/" target="_blank">Free Code Camp</a> <br></li><br>
 
             </ul>
-            <ul>Gif:
+            <ul class="fs">Gif:
                 <li><a href="https://gifs-as-documentation.readthedocs.io/en/latest/" target="_blank"> Animated gif for document
                         file</a> <br></li>
                 <li><a href="https://www.format.com/magazine/resources/photography/make-gif-in-photoshop" target="_blank"> gif with
@@ -453,8 +136,8 @@ color:green;
         </div>
 
         </div>
-        <div class="footer">
-            <h3>Footer</h3>
+        <div class="footer" id="footer">
+            <h5>Footer</h5>
         </div>
         <div class="content">
             <h3>Content</h3>
@@ -529,13 +212,17 @@ color:green;
 
             <img src="img/avatar.jpeg" alt="Avatar" style="padding-top:px;width:100px;height:100px;" />
 
-            <p style="padding-bottom:0%">Name: Mr/Ms XYZ</p>
+            <!-- <p id="name-in-introduction-page" style="padding-bottom:0%">Name: Mr/Ms Job Seeker</p> -->
+            <p id="nameinintroductionpage" style="padding-bottom:0%">Name:</p>
             <p style="font-size: 11px;">Birth Date: 12 Jan, 1988</p>
-            <p>Age 32 yrs, recently <a style="color:rgb(247, 223, 7)"
-                    href="#page address">UNEMPLOID.<sup>&#8663;</sup></a></p>
-            <p>Have life-long<em> passion</em> to be an <a style="color:yellow" href="#page address">WEB
-                    DEVEOPER.<sup>&#8663;</sup></a></p>
+
+            <!-- <p>Age 32 yrs, recently <span style="color:yellow">UNEMPLOID.<sup>&#8663;</sup></span></p>
+            <p>Have life-long<em> passion</em> to be an <span style="color:yellow">WEB DEVEOPER.<sup>&#8663;</sup></span></p> -->
+            <!-- <p>Age 32 yrs, recently <span style="color:yellow" onmouseout="unemploymentCause_remove()" onmouseover="unemploymentCause()">UNEMPLOID.<sup>&#8663;</sup></span></p> -->
+            <p>Age 32 yrs, recently <span style="color:yellow;cursor: pointer;" onmouseout="unemploymentCause_remove()" onclick="unemploymentCause()">UNEMPLOID.<sup>&#8663;</sup></span></p>
+            <p>Have life-long<em> passion</em> to be an <span style="color:yellow; cursor: pointer;" onmouseout="webDeveloperCause_remove()" onclick="webDeveloperCause()">WEB DEVEOPER.<sup>&#8663;</sup></span></p>
             <p><em>Give me an opportunity to prove myself that I am benificial for you.</em> </p>
+           
             <!-- <p>life-long dream will come true, will increase my skill, hopefully provide means for my better
                                 survival.</p> -->
         </div>
@@ -544,7 +231,7 @@ color:green;
        <!-- START OF BRIEF RESUME -->
        <div class="midcol" id="brief">
         <header style="text-align: center;text-transform: capitalize;">
-            <h3><u>resume in brief</u></h3>
+            <h5><u>resume in brief</u></h5>
         </header>
         <dl>
             <dt style="color:white; width:auto;padding-left: 30px; text-align: left;">
@@ -632,10 +319,51 @@ color:green;
 
     
            
-        <article id="">
+        <article id="test">
         
         </article>
         <!-- END: article media query -->
+
+
+        <!-- FOR POPUP IN TOC----------------------------------------------------------------- -->
+
+        <div id="sender_unemployment" style="visibility: hidden;">
+            <article id="art1">
+                <section id="sendersec1">
+                    <h6 id="sec1header">Recent Unemployment Info</h6>
+                    <!-- <hr> -->
+                </section>
+                <section id="sendersec2">
+                    <p id="sec2para1">This is the first paragrap of this section</p>
+                    <p id="sec2para2">This is the second paragrap of this section</p>
+                    <p id="sec2para3">This is the third paragrap of this section</p>
+                    <p id="sec2para4">This is the fourth paragrap of this section</p>
+                </section>
+                <footer id="ftr1">
+                   <p>Some text in the footer area</p>
+                   <p>More text in the footer area</p>
+                </footer>
+            </article>
+        </div>
+
+        <div id="sender_web_developer" style="visibility: hidden;">
+            <article id="art2">
+                <section id="sendersec1">
+                    <h6 id="sec1header">Why want to be a web developer</h6>
+                    <!-- <hr> -->
+                </section>
+                <section id="sendersec2">
+                    <p id="sec2para1">This is the first paragrap of this section</p>
+                    <p id="sec2para2">This is the second paragrap of this section</p>
+                    <p id="sec2para3">This is the third paragrap of this section</p>
+                    <p id="sec2para4">This is the fourth paragrap of this section</p>
+                </section>
+                <footer id="ftr2">
+                    <p>Some text in the footer area may be added</p>
+                </footer>
+            </article>
+        </div>
+
 
 
         <!-- END OF ARTICLES -->
@@ -655,7 +383,31 @@ color:green;
     function changeFontColor() {
         document.getElementById('element_id').style.color = document.getElementById('bg_color').value;
     }
+    function changeFontSize() {
+        document.getElementById('element_id').style.fontSize = document.getElementById('font_size').value;
+        // document.getElementById("#aside").style.fontSize = document.getElementById('font_size').value;
+        // document.querySelectorAll('.fs').style.fontSize = document.getElementById('font_size').value;
+        var x, i;
+      x = document.querySelectorAll(".fs p, .fs ul, .fs ul>li a, .fs input, .fs ul a");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.fontSize =  document.getElementById('font_size').value;
+
+        // ============FONT COLOR/OTHER ATTRIBUTES ALSO CAN CHANGE==========================
+        // x[i].style.color =  document.getElementById('bg_color').value;
+      }
+        
+    }
 </script>
+
+<script>
+    function myFunction() {
+      var x, i;
+      x = document.querySelectorAll(".fs");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.fontSize =  document.getElementById('font_size').value;
+      }
+    }
+    </script>
 <script>
     //'FULL SCREEN' BUTTON
     var elem = document.documentElement;
@@ -715,11 +467,14 @@ color:green;
         element_id.style.overflow = 'auto';
         // element_id.style.background = '#0000ff';
         element_id.style.background = '#rgb(63, 63, 63)';
-        element_id.style.width = '90%';
-        // element_id.style.height = '360px';
-        element_id.style.height = '360px';
+        element_id.style.width = '98%';
+        element_id.style.height = '450px';
         element_id.style.alignContent = `center`;
+<<<<<<< HEAD
+        // element_id.style.marginLeft = `5px`;
+=======
         element_id.style.marginLeft = `-15px`;
+>>>>>>> 80a68dd7b7245d8e7eb3de85e9f839b0d79c29cf
         // element_id.style. resize= 'vertical';
     }
 </script>
@@ -802,6 +557,83 @@ details.forEach((targetDetail) => {
     function fnc_fullscreen() {
         window.moveTo(0, 0);
         window.resizeTo(screen.availWidth, screen.availHeight);
+    }
+</script>
+
+
+<script>
+function applicantName() {
+    let y = document.getElementById("applicantname"); 
+    let z = y.innerHTML;
+    let k = z.substr(5);
+    let x =  document.getElementById("nameinintroductionpage"); 
+  
+   x.innerHTML=k;
+   x.style.color="#00ff00"; 
+}
+</script>
+
+ <!-- POPUP FOR UNEMPLOYMENT INFO ---------------------------------------------------------->
+<script>
+function unemploymentCause() {
+   let art1 = document.getElementById("art1");
+   art1.style.background="#BFBFE8";
+   art1.style.color="black";
+
+let x = document.getElementById("receiver");
+        let y = document.getElementById("sender_unemployment");
+        // let y = document.getElementById("div2");
+        x.innerHTML = y.innerHTML;
+        x.style.visibility = "visible";
+
+        document.getElementById("art1").style.position="absolute";
+        document.getElementById("art1").style.visibility="hidden";
+        // document.getElementById("art1").style.animationFillMode="forwards";
+}
+
+
+function unemploymentCause_remove() {
+    let t =  document.getElementById("receiver");
+//    t.innerHTML=document.getElementById("related_content").innerHTML; 
+   t.innerHTML=""; 
+   t.style.visibility="hidden";
+} 
+
+ function webDeveloperCause() {
+   let art2 = document.getElementById("art2");
+   art2.style.background="#E1E1EA";
+   art2.style.color="black";
+
+    let x = document.getElementById("receiver");
+        let y = document.getElementById("sender_web_developer");
+        // let y = document.getElementById("div2");
+        x.innerHTML = y.innerHTML;
+        x.style.visibility = "visible";
+
+        document.getElementById("art2").style.position="absolute";
+        document.getElementById("art2").style.visibility="hidden";
+
+}
+
+function webDeveloperCause_remove() {
+    let t =  document.getElementById("receiver");
+//    t.innerHTML=document.getElementById("related_content").innerHTML; 
+   t.innerHTML=""; 
+   t.style.visibility="hidden";
+ } 
+
+
+</script>
+
+ <script type="application/javascript">
+    function mF() {
+
+        let x = document.getElementById("receiver");
+        let y = document.getElementById("sender");
+        let y = document.getElementById("div2");
+        x.innerHTML = y.innerHTML;
+        x.style.visibility = "visible";
+
     }
 </script>
 </html>
