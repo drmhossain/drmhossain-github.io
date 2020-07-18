@@ -1,2 +1,2 @@
-# wearehere
-The most answered/unanswered query
+# experimental one page style website
+configured as resume/biodata
